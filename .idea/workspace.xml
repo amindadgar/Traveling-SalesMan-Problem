@@ -28,6 +28,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\lessons\7th_Term\Computational Inteligence\HW1\Evolutionary Algorithm for Traveling SalesMan\src\main" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -70,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604036173893</updated>
-      <workItem from="1604036177659" duration="841000" />
+      <workItem from="1604036177659" duration="1438000" />
     </task>
     <servers />
   </component>
