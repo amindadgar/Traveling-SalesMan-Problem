@@ -7,9 +7,7 @@ import java.io.File
 
 fun main(args:Array<String>){
 
-    val initPopulation = InitPopulation()
-    initPopulation.getIndividualsFromMatrixFile(File("src/main/resources/dataset.txt"))
+    val initPopulation = InitPopulation(File("src/main/resources/dataset.txt"))
 
-    println(initPopulation.graphAdjadancyMatrix[0])
 
 }
