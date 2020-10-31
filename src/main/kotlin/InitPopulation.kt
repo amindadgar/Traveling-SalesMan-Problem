@@ -14,6 +14,7 @@ class InitPopulation(private val file: File,
      * @param individualCount is our individuals count, Default is 30
      * @param graphAdjadancyMatrix is for dataset
      * @param Individuals is our individuals
+     * @param fitness the fitness of every individuals are saved, Their connected with index
      * @param enableLog is to enable or disable log
      *
      * At first getIndividualsFromMatrixFile() will getData from dataset
