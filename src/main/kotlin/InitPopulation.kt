@@ -1,4 +1,5 @@
 import java.io.File
+import kotlin.math.roundToInt
 
 class InitPopulation(private val file: File,
                      private val individualCount:Int=30,
@@ -6,7 +7,7 @@ class InitPopulation(private val file: File,
 
     val graphAdjadancyMatrix:ArrayList<ArrayList<Int>> = arrayListOf(arrayListOf())
     val Individuals:ArrayList<ArrayList<Int>> = arrayListOf(arrayListOf())
-    val fitness:ArrayList<Int> = arrayListOf()
+    val fitness:ArrayList<Float> = arrayListOf()
 
 
     /**
@@ -39,6 +40,7 @@ class InitPopulation(private val file: File,
 
             Individuals.add(i,individual)
         }
+        EvaluateFittness(Individuals)
     }
 
 
@@ -89,6 +91,25 @@ class InitPopulation(private val file: File,
             i++
         }
         return individual
+    }
+
+    private fun EvaluateFittness(individuals: ArrayList<ArrayList<Int>>){
+
+        // for all individuals
+        for (i in 0 until individualCount){
+            // make add an index to array, index is i
+            fitness.add(i,0f)
+
+            // check each fitness
+            for (j in 0 until 25){
+                val index0 =  individuals[i][j]
+                val index1 = individuals[i][j+1]
+                fitness[i] = fitness[i] + graphAdjadancyMatrix[index0][index1]
+            }
+            fitness[i] = (((1 / fitness[i]) *1000000).roundToInt().toFloat())/1000
+
+            printline("Fitness No.${i+1}  ${( (fitness[i]) )}")
+        }
     }
 
 
