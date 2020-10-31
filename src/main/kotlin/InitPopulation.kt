@@ -6,7 +6,7 @@ import kotlin.math.roundToInt
 
 class InitPopulation(private val file: File,
                      private val individualCount:Int=30,
-                     private val enableLog:Boolean=true) {
+                     private val enableLog:Boolean=false) {
 
 
 
@@ -27,13 +27,13 @@ class InitPopulation(private val file: File,
         //Create Population
         for (i in 0 until individualCount){
             var individual = addIndividual()
-            printline("individual No.${i+1}:  $individual")
+            println("individual No.${i+1}:  $individual")
 
             //LOOP: check if there was a path, else try to get another individual with a path
             while (checkIndividualPath(individual)==null) {
                 printline("individual No.${i+1} is not having a path\nSo trying to get a new individual instead")
                 individual = addIndividual()
-                printline("New individual No.${i+1}:  $individual")
+                println("New individual No.${i+1}:  $individual")
             }
 
             Individuals.add(i,individual)
@@ -104,9 +104,10 @@ class InitPopulation(private val file: File,
                 val index1 = individuals[i][j+1]
                 fitness[i] = fitness[i] + graphAdjadancyMatrix[index0][index1]
             }
+            // round individual with 3 decimals
             fitness[i] = (((1 / fitness[i]) *1000000).roundToInt().toFloat())/1000
 
-            printline("Fitness No.${i+1}  ${( (fitness[i]) )}")
+            println("Fitness No.${i+1}  ${( (fitness[i]) )}")
         }
     }
 
