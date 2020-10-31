@@ -3,8 +3,10 @@ import java.io.File
 class InitPopulation(private val file: File,
                      private val individualCount:Int=30,
                      private val enableLog:Boolean=true) {
+
     val graphAdjadancyMatrix:ArrayList<ArrayList<Int>> = arrayListOf(arrayListOf())
     val Individuals:ArrayList<ArrayList<Int>> = arrayListOf(arrayListOf())
+    val fitness:ArrayList<Int> = arrayListOf()
 
 
     /**
@@ -77,11 +79,13 @@ class InitPopulation(private val file: File,
     private fun checkIndividualPath(individual:ArrayList<Int>):ArrayList<Int>?{
         var i = 0
         while(i<25){
-            printline("$i ${i+1} path checked!")
-            if (graphAdjadancyMatrix[i][i+1] == 0) {
+            val index0 = individual[i]
+            val indext1 = individual[i+1]
+            if (graphAdjadancyMatrix[index0][indext1] == 0) {
                 // if there was no path, return null !!
                 return null
             }
+            printline("$i ${i+1} path checked!")
             i++
         }
         return individual
