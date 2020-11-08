@@ -8,6 +8,7 @@ import java.io.File
 fun main(args:Array<String>){
 
     val initPopulation = InitPopulation(File("src/main/resources/dataset.txt"))
+    RouletteWheel()
 
 
 }
